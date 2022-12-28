@@ -1,0 +1,56 @@
+-- Create a new database
+CREATE DATABASE test_database;
+
+-- Use the new database
+USE test_database;
+
+-- Create a new table with a primary key and three columns
+CREATE TABLE test_table (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255),
+  value INT,
+  description VARCHAR(255)
+);
+
+-- Insert some data into the table
+INSERT INTO test_table (name, value, description)
+VALUES
+  ('foo', 1, 'A'),
+  ('bar', 2, 'B'),
+  ('baz', 3, 'C'),
+  ('qux', 4, 'D'),
+  ('quux', 5, 'E'),
+  ('corge', 6, 'F'),
+  ('grault', 7, 'G'),
+  ('garply', 8, 'H'),
+  ('waldo', 9, 'I'),
+  ('fred', 10, 'J');
+
+-- Update a row in the table
+UPDATE test_table
+SET value = 11, description = 'K'
+WHERE name = 'waldo';
+
+-- Select all rows from the table
+SELECT * FROM test_table;
+
+-- Select specific columns from the table
+SELECT name, value, description FROM test_table;
+
+-- Select rows with a specific value
+SELECT * FROM test_table
+WHERE value = 6;
+
+-- Select rows with a value within a certain range
+SELECT * FROM test_table
+WHERE value BETWEEN 4 AND 8;
+
+-- Delete a row from the table
+DELETE FROM test_table
+WHERE name = 'grault';
+
+-- Drop the table
+DROP TABLE test_table;
+
+-- Drop the database
+DROP DATABASE test_database;
